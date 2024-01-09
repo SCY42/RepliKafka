@@ -25,8 +25,11 @@ def uploaded_in_feedback_forum(thread: discord.Thread):
     return thread.parent == feedback
 
 def msg_contains_img(msg: discord.Message):
-    return msg.attachments != [] or msg.content.startswith("https://twitter.com/") \
-           or msg.content.startswith("https://vxtwitter.com/")
+    return msg.attachments != [] or "https://twitter.com/" in msg.content \
+           or "https://vxtwitter.com/" in msg.content \
+           or "https://fxtwitter.com/" in msg.content \
+           or "https://fixupx.com/" in msg.content \
+           or "https://x.com/" in msg.content
 
 
 @tree.command(name="멘션용_역할부여", description="그림을 업로드하지 않은 멤버들에게 역할을 일괄 부여합니다.")
